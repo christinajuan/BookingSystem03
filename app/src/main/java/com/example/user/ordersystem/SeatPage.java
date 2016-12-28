@@ -17,7 +17,6 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -156,11 +155,6 @@ public class SeatPage extends AppCompatActivity {
 
         }
     };
-
-    //
-    //桌號資料變數> tableNumber
-
-
 
 
 

@@ -190,16 +190,19 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_booking) {
             Intent it = new Intent();
             it.setClass(MainActivity.this,SeatPage.class);
             startActivity(it);
             finish();
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_waiter) {
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_menu) {
+            Intent it = new Intent();
+            it.setClass(MainActivity.this,menuActivity.class);
+            startActivity(it);
+            finish();
+        } else if (id == R.id.nav_news) {
 
         } else if (id == R.id.nav_share) {
 

@@ -3,19 +3,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_booking"
             android:icon="@drawable/booking"
             android:title="訂位" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_waiter"
             android:icon="@drawable/waiter"
             android:title="入座" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_menu"
             android:icon="@drawable/menu"
             android:title="菜單" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_news"
             android:icon="@drawable/news"
             android:title="最新消息" />
     </group>
