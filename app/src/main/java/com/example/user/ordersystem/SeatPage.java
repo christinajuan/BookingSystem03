@@ -76,10 +76,10 @@ public class SeatPage extends AppCompatActivity {
         pullData();
         uiHandler = new UIHandler();
         //---------從Service提取資料---------
-        myReceiver = new MyReceiver();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("test");
-        registerReceiver(myReceiver,intentFilter);
+//        myReceiver = new MyReceiver();
+//        IntentFilter intentFilter = new IntentFilter();
+//        intentFilter.addAction("test");
+//        registerReceiver(myReceiver,intentFilter);
 
 
 

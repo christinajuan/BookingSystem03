@@ -4,15 +4,19 @@ package com.example.user.ordersystem;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
+import android.widget.TextView;
 
 public class SuccessPage extends FragmentActivity  {
 
+    private TextView mTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_bottom);
         FragmentTabHost tabHost = (FragmentTabHost)findViewById(android.R.id.tabhost);
         tabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
+
+
         //1
         tabHost.addTab(tabHost.newTabSpec("倒數計時")
                         .setIndicator("倒數計時"),
