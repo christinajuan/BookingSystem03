@@ -9,6 +9,8 @@ import android.widget.TextView;
 public class SuccessPage extends FragmentActivity  {
 
     private TextView mTextView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +41,6 @@ public class SuccessPage extends FragmentActivity  {
                 null);
 
     }
-
-
-
 
 
     /**************************

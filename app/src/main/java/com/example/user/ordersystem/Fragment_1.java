@@ -14,7 +14,7 @@ public class Fragment_1 extends Fragment {
 
 
     //訂位時間倒數參數
-    int tt = 30000;
+    int tt = 10000;
 
 
     @Override
@@ -39,7 +39,7 @@ public class Fragment_1 extends Fragment {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                mTextView.setText("seconds remaining:"+millisUntilFinished/1000);
+                mTextView.setText("入座倒數:"+millisUntilFinished/1000);
             }
 
         }.start();
