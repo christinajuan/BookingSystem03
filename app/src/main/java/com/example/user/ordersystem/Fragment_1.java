@@ -52,7 +52,4 @@ public class Fragment_1 extends Fragment {
         txtResult.setText(value);
     }
 
-
-
-
 }

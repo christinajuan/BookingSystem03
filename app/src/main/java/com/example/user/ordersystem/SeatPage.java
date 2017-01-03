@@ -5,6 +5,7 @@ import android.app.TimePickerDialog;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -75,10 +76,10 @@ public class SeatPage extends AppCompatActivity {
         pullData();
         uiHandler = new UIHandler();
         //---------從Service提取資料---------
-//        myReceiver = new MyReceiver();
-//        IntentFilter intentFilter = new IntentFilter();
-//        intentFilter.addAction("test");
-//        registerReceiver(myReceiver,intentFilter);
+        myReceiver = new MyReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("test");
+        registerReceiver(myReceiver,intentFilter);
 
 
 
