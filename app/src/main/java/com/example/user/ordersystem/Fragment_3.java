@@ -35,6 +35,9 @@ public class Fragment_3 extends Fragment {
 //        });
         return v;
     }
+
+    
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
