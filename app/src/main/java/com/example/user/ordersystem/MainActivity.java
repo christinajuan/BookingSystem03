@@ -77,8 +77,13 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "回上一頁", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+//                Intent it = new Intent();
+//                it.setClass(MainActivity.this,SeatPage.class);
+//                startActivity(it);
+//                finish();
+
             }
         });
 

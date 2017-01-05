@@ -39,7 +39,17 @@ public class SuccessPage extends FragmentActivity  {
                         .setIndicator("菜單"),
                 com.example.user.ordersystem.Fragment_4.class,
                 null);
-
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent it = new Intent();
+//                it.setClass(SuccessPage.this,SeatPage.class);
+//                startActivity(it);
+//                finish();
+//
+//            }
+//        });
     }
 
 

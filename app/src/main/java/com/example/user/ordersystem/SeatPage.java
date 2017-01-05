@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Message;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -82,7 +83,17 @@ public class SeatPage extends AppCompatActivity {
         registerReceiver(myReceiver,intentFilter);
 
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent it = new Intent();
+                it.setClass(SeatPage.this,MainActivity.class);
+                startActivity(it);
+                finish();
 
+            }
+        });
     }
 
     @Override
