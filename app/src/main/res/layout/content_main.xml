@@ -12,7 +12,6 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.user.ordersystem.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    android:background="@drawable/christmas_background"
     >
 
     <TextView

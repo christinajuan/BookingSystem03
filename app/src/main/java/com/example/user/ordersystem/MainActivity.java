@@ -1,10 +1,16 @@
 package com.example.user.ordersystem;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -26,6 +32,11 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.nightonke.boommenu.BoomMenuButton;
+import com.nightonke.boommenu.Types.BoomType;
+import com.nightonke.boommenu.Types.ButtonType;
+import com.nightonke.boommenu.Types.PlaceType;
+import com.nightonke.boommenu.Util;
 
 import java.util.List;
 
@@ -40,6 +51,13 @@ public class MainActivity extends AppCompatActivity
             private ProfileTracker profileTracker;
             private String loginID;
             private int count;
+
+            //-----------------menu-----------------------------------
+            BoomMenuButton boomMenuButton;
+            private Context mContext;
+            private Drawable[] drawables;
+            private int[][] colors;
+            private String[] STRINGS;
 
 
 
@@ -88,19 +106,11 @@ public class MainActivity extends AppCompatActivity
 
         lmg.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
-            public void onSuccess(LoginResult loginResult) {
-
-            }
-
+            public void onSuccess(LoginResult loginResult) {}
             @Override
-            public void onCancel() {
-
-            }
-
+            public void onCancel() {}
             @Override
-            public void onError(FacebookException error) {
-
-            }
+            public void onError(FacebookException error) {}
         });
 
         profileTracker = new ProfileTracker() {
@@ -140,21 +150,27 @@ public class MainActivity extends AppCompatActivity
 
         };
         //-----------------end-----------------------------------
-//
-//        //-----------------要求授權-----------------------------------
-//        if (ContextCompat.checkSelfPermission(this,
-//                Manifest.permission.ACCESS_FINE_LOCATION)
-//                != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this,
-//                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
-//                            Manifest.permission.ACCESS_COARSE_LOCATION},
-//                    123);
-//        }else {
-//            init();
-//        }
 
+        //-----------------要求授權-----------------------------------
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                            Manifest.permission.ACCESS_COARSE_LOCATION},
+                    123);
         }
-            //-----------------onCreate_end-----------------------------------
+    //-----------------menuOnCreate-----------------------------------
+        boomMenuButton = (BoomMenuButton)findViewById(R.id.boom);
+        mContext = this;
+        initInfoBoom();
+
+
+
+
+        //-----------------onCreate_end-----------------------------------
+    }
+
 
 
 
@@ -242,4 +258,61 @@ public class MainActivity extends AppCompatActivity
         }
     };
 
+
+//-----------------menu-----------------------------------
+
+private void initInfoBoom() {
+
+    drawables = new Drawable[3];
+    int[] drawablesResource = new int[]{
+            R.drawable.booking,
+            R.drawable.waiter,
+            R.drawable.menu
+//            ,
+//            R.drawable.news
+
+    };
+    for (int i = 0; i < 3; i++)
+        drawables[i] = ContextCompat.getDrawable(mContext, drawablesResource[i]);
+
+    colors = new int[3][2];
+    for (int i = 0; i < 3; i++) {
+        colors[i][1] = ContextCompat.getColor(mContext, R.color.colorOrange);
+        colors[i][0] = Util.getInstance().getPressedColor(colors[i][1]);
+    }
+    STRINGS = new String[]{
+            "訂位",
+            "入座QRCode",
+            "菜單"
+//            ,
+//            "最新消息"
+
+    };
+    String[] strings = new String[3];
+    for (int i = 0; i < 3; i++)
+        strings[i] = STRINGS[i];
+
+
 }
+            @Override
+            public void onWindowFocusChanged(boolean hasFocus) {
+                super.onWindowFocusChanged(hasFocus);
+
+                boomMenuButton.init(
+                        drawables, // 子按钮的图标Drawable数组，不可以为null
+                        STRINGS,     // 子按钮的文本String数组，可以为null
+                        colors,    // 子按钮的背景颜色color二维数组，包括按下和正常状态的颜色，不可为null
+                        ButtonType.HAM,     // 子按钮的类型
+                        BoomType.PARABOLA,  // 爆炸类型
+                        PlaceType.HAM_3_1,  // 排列类型
+                        null,               // 展开时子按钮移动的缓动函数类型
+                        null,               // 展开时子按钮放大的缓动函数类型
+                        null,               // 展开时子按钮旋转的缓动函数类型
+                        null,               // 隐藏时子按钮移动的缓动函数类型
+                        null,               // 隐藏时子按钮缩小的缓动函数类型
+                        null,               // 隐藏时子按钮旋转的缓动函数类型
+                        null                // 旋转角度
+                );
+            }
+
+        }
