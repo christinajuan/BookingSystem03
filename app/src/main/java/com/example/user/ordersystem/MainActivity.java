@@ -169,7 +169,16 @@ public class MainActivity extends AppCompatActivity
         boomMenuButton = (BoomMenuButton)findViewById(R.id.boom);
         mContext = this;
         initInfoBoom();
-
+        boomMenuButton.setOnSubButtonClickListener(new BoomMenuButton.OnSubButtonClickListener() {
+            @Override
+            public void onClick(int buttonIndex) {
+                Intent it = new Intent();
+                it.setClass(MainActivity.this,SeatPage.class);
+                startActivity(it);
+                finish();
+                //Log.v("chris","onclick");
+            }
+        });
 
 
 
